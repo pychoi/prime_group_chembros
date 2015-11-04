@@ -2,7 +2,7 @@ var i=1;
 
 $(document).ready(function(){
 
-    $(".spinner-loader").hide();
+    $(".progress").hide();
     $("#generateEmployee").submit(function(event) {
         event.preventDefault();
         var values = {};
@@ -27,12 +27,12 @@ function employeePost(values){
         data: values,
         beforeSend: function(){
             //$('.spinner-loader').show() ;
-            $(".progress").append( '<div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 100%"> </div>');
+            $(".progress").show().append( '<div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 100%"> </div>');
         },
         complete: function(){
-            $(".spinner-loader").hide();
+            //$(".spinner-loader").hide();
             $(".progress").remove();
-            $("#content").html('<h1>Employees have been added to database</h1>')
+            $("#content").text('Employees have been added to database');
         },
         success: function(data){
 
